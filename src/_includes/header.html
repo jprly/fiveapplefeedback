@@ -22,7 +22,7 @@
       var(--black-transparent) 30%
     );
     bottom: 0;
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     right: 0;
@@ -46,7 +46,7 @@
     border: 1px solid var(--dark-gray);
     border-radius: 0.25rem;
     color: var(--dark-gray);
-    content: 'Check out Learn With Jason!';
+    content: "Check out Learn With Jason!";
     display: block;
     left: -0.5rem;
     opacity: 0;
@@ -105,7 +105,7 @@
 
   .lwj-demo-header .top-bar::before,
   .lwj-demo-header .top-bar::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     width: 100vw;
@@ -126,10 +126,6 @@
 
 <header class="lwj-demo-header">
   <div class="logo-wrapper">
-    <canvas id="canvas" width="300" height="56"></canvas>
-    <a href="https://www.learnwithjason.dev" class="logo"
-      ><img src="/images/learn-with-jason-dark.svg" alt="Learn With Jason"
-    /></a>
     <a href="/" rel="home" class="home-link"> {{ meta.title }} </a>
   </div>
 
@@ -137,7 +133,7 @@
 </header>
 
 <script type="module">
-  import { startAnimation } from '/js/dots.js';
+  import { startAnimation } from "/js/dots.js";
 
   startAnimation();
 </script>
