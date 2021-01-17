@@ -1,18 +1,18 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const fetch = require("node-fetch");
-const { faunaFetch } = require("./utils/fauna");
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const fetch = require('node-fetch');
+const { faunaFetch } = require('./utils/fauna');
 
 exports.handler = async ({ body, headers }, context) => {
   try {
     // make sure this event was sent legitimately.
     const stripeEvent = stripe.webhooks.constructEvent(
       body,
-      headers["stripe-signature"],
-      process.env.STRIPE_WEBHOOK_SECRET
+      headers['stripe-signature'],
+      process.env.STRIPE_WEBHOOK_SECRET,
     );
 
     // bail if this is not a subscription update event
-    if (stripeEvent.type !== "customer.subscription.updated") return;
+    if (stripeEvent.type !== 'customer.subscription.updated') return;
 
     const subscription = stripeEvent.data.object;
 
@@ -33,12 +33,12 @@ exports.handler = async ({ body, headers }, context) => {
 
     // take the first word of the plan name and use it as the role
     const plan = subscription.items.data[0].plan.nickname;
-    const role = plan.split(" ")[0].toLowerCase();
+    const role = plan.split(' ')[0].toLowerCase();
 
     // send a call to the Netlify Identity admin API to update the user role
     const { identity } = context.clientContext;
     await fetch(`${identity.url}/admin/users/${netlifyID}`, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
         // note that this is a special admin token for the Identity API
         Authorization: `Bearer ${identity.token}`,

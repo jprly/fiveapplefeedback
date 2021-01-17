@@ -1,8 +1,8 @@
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 
 exports.faunaFetch = async ({ query, variables }) => {
-  return await fetch("https://graphql.fauna.com/graphql", {
-    method: "POST",
+  return await fetch('https://graphql.fauna.com/graphql', {
+    method: 'POST',
     headers: {
       Authorization: `Bearer ${process.env.FAUNA_SERVER_KEY}`,
     },
