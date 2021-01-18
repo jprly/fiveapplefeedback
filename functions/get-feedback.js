@@ -1,7 +1,6 @@
-var faunadb = require('faunadb'),
-  q = faunadb.query;
-  
 exports.handler = async (event) => {
+  var faunadb = require("faunadb"),
+    q = faunadb.query;
   var adminClient = new faunadb.Client({
     secret: `${process.env.FAUNA_SERVER_KEY}`,
   });
