@@ -124,7 +124,9 @@
             Authorization: `Bearer ${user.token.access_token}`,
           },
         })
-          .then((res) => res.json())
+          .then((res) => {
+            console.log('zzz')
+            return res.json()})
           .then((link) => {
             window.location.href = link;
           })
