@@ -1,4 +1,4 @@
-exports.handler = async (event) => {
+exports.handler = (event) => {
   var faunadb = require("faunadb"),
     q = faunadb.query;
   var adminClient = new faunadb.Client({
