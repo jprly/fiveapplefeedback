@@ -11,8 +11,6 @@ exports.faunaFetch = async ({ query, variables }) => {
       variables,
     }),
   })
-    .then((res) => {
-      console.log('😱', res)
-      return res.json()})
+    .then((res) => res.json())
     .catch((err) => console.error(JSON.stringify(err, null, 2)));
 };
