@@ -94,16 +94,18 @@
 ></script>
 
 <script>
+
+
   const fetchButton = document.querySelector("#fetchbutton");
-  fetchButton.addEventListener("click", () => {
+  fetchButton.addEventListener("click", (user) => {
+    console.log(user);
     fetch("/.netlify/functions/get-feedback", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${user.token.access_token}`,
+        // Authorization: `Bearer ${user.token.access_token}`,
       },
     });
   });
-
   const button1 = document.getElementById("left");
   const button2 = document.getElementById("right");
 
