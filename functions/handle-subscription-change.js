@@ -32,7 +32,7 @@ exports.handler = async ({ body, headers }, context) => {
     const { netlifyID } = result.data.getUserByStripeID;
 
     // take the first word of the plan name and use it as the role
-    const plan = stripeEvent.data.object.items.data[1].metadata.plan //subscription.items.data[0].plan.nickname;
+    const plan = subscription.items.data[0].plan.nickname; //stripeEvent.data.object.items.data[1].metadata.plan 
     console.log(subscription);
     const role = plan.split(' ')[0].toLowerCase();
 
